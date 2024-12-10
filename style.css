@@ -5,15 +5,26 @@
 
 body{
     background-color: beige;
+    height: 100vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
 }
 
-.books > div{
+.book{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid black;
+    min-width: 200px;
+    min-height: 200px;
 }
 
 
 .books{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    width: 100vh;
+    flex-wrap: wrap;
 }
