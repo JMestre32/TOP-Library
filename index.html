@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="library.js"></script>
 </head>
 <body>
     <div class="books">
@@ -14,11 +13,24 @@
         <div class="book">box</div>
     </div>
 
-    <dialog></dialog>
-
     <button class = "add-button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" /></svg>
     </button>
+
+    <dialog class = "modal">
+        <form action="#" method = "dialog">
+            <p><label for="title">Title</label><br>
+            <input type="text" id="title" name="title" placeholder="(ex. Diary of a Wimpy Kid)"></p>
+            <p><label for="author">Author</label><br>
+                <input type="text" id="author" name="author" placeholder="(ex. Jeff Kinney)"></p>
+            <p><label for="pages"># of Pages</label><br>
+                <input type="number" id="pages" name="pages" placeholder="(ex. 224)"></p>
+            <p><label for="read">Read/Not Read</label><br>
+                <input type="checkbox" id="read" name="read"></p>
+            <button class = "submit-button" type="submit">Submit</button>
+        </form>
+    </dialog>
+    <script src="library.js"></script>
 </body>
 </html>
 

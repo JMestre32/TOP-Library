@@ -24,7 +24,9 @@ addBookToLibrary(book1);
 
 
 const addButton = document.querySelector('.add-button');
+const modal = document.querySelector('.modal');
+
 
 addButton.addEventListener('click', () =>{
-    
+    modal.showModal();
 })
