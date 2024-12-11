@@ -4,11 +4,13 @@
 }
 
 body{
-    background-color: beige;
+    background-color: #f0fdf4;
     height: 100vh;
     width: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .book{
@@ -31,3 +33,20 @@ body{
     padding: 20px;
 }
 
+svg{
+    height: 5rem;
+    width: auto;
+}
+
+.add-button{
+    border: none;
+    background-color: transparent;
+}
+
+.add-button svg{
+    fill: #16a34a;
+}
+
+.add-button :hover{
+    fill: #166534;
+}

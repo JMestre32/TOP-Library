@@ -21,3 +21,10 @@ function addBookToLibrary(newBook){
 const book1 = new Book("Jeff Kinney", "Diary of a Wimpy Kid", 150, false);
 
 addBookToLibrary(book1);
+
+
+const addButton = document.querySelector('.add-button');
+
+addButton.addEventListener('click', () =>{
+    
+})
