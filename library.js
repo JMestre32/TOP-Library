@@ -51,6 +51,9 @@ const submitButton = document.querySelector('.submit-button')
 const bookForm = document.querySelector('.book-form')
 
 submitButton.addEventListener('click', () =>{
+    if(bookForm.author.value ==="" || bookForm.title.value ==="" || bookForm.pages.value===""){
+        return
+    }
     const newBook = new Book(bookForm.author.value, bookForm.title.value, bookForm.pages.value, bookForm.read.checked);
     addBookToLibrary(newBook);
 })
