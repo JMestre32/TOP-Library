@@ -18,18 +18,20 @@
     </button>
 
     <dialog class = "modal">
-        <form action="#" method = "dialog">
+        <form class = "book-form" action="#" method = "dialog">
             <p><label for="title">Title</label><br>
-            <input type="text" id="title" name="title" placeholder="(ex. Diary of a Wimpy Kid)"></p>
+            <input type="text" id="title" name="title" placeholder="(ex. Diary of a Wimpy Kid)" required></p>
             <p><label for="author">Author</label><br>
-                <input type="text" id="author" name="author" placeholder="(ex. Jeff Kinney)"></p>
+                <input type="text" id="author" name="author" placeholder="(ex. Jeff Kinney)" required></p>
             <p><label for="pages"># of Pages</label><br>
-                <input type="number" id="pages" name="pages" placeholder="(ex. 224)"></p>
+                <input type="number" id="pages" name="pages" placeholder="(ex. 224)" required min="1"></p>
             <p><label for="read">Read/Not Read</label><br>
                 <input type="checkbox" id="read" name="read"></p>
             <button class = "submit-button" type="submit">Submit</button>
         </form>
     </dialog>
+
+    <div class = "error-message-space"></div>
     <script src="library.js"></script>
 </body>
 </html>

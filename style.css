@@ -92,3 +92,7 @@ form p{
 .submit-button:active{
     color: black;
 }
+
+.error-message-space{
+    color: red;
+}

@@ -8,12 +8,20 @@ function Book(author, title, pages, read){
     this.read = read;
 }
 
+const errorMessageSpace = document.querySelector('.error-message-space');
+let messageExists = false;
+
 function addBookToLibrary(newBook){
     const exists = myLibrary.find(book => book.title === newBook.title);
     if(!exists){
         myLibrary.push(newBook);
     } else {
         console.log(newBook.title + " exists in your library already");
+        const message = document.createElement("p");
+        message.id = "errorMessage";
+        message.textContent = newBook.title + " exists in your library already";
+        errorMessageSpace.appendChild(message);
+        messageExists = true;
     }
     
 }
@@ -28,5 +36,21 @@ const modal = document.querySelector('.modal');
 
 
 addButton.addEventListener('click', () =>{
-    modal.showModal();
+    if(messageExists){
+        const target = document.getElementById("errorMessage");
+        target.remove();
+        messageExists = false;
+        modal.showModal();
+    }
+    else{
+        modal.showModal();
+    }
+})
+
+const submitButton = document.querySelector('.submit-button')
+const bookForm = document.querySelector('.book-form')
+
+submitButton.addEventListener('click', () =>{
+    const newBook = new Book(bookForm.author.value, bookForm.title.value, bookForm.pages.value, bookForm.read.checked);
+    addBookToLibrary(newBook);
 })
