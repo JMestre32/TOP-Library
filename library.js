@@ -57,3 +57,11 @@ submitButton.addEventListener('click', () =>{
     const newBook = new Book(bookForm.author.value, bookForm.title.value, bookForm.pages.value, bookForm.read.checked);
     addBookToLibrary(newBook);
 })
+
+const books = document.querySelector('.books');
+const box = document.createElement("div");
+const bookInfo = document.createElement("p");
+bookInfo.textContent = myLibrary[myLibrary.length -1].title + `\r\n` + myLibrary[myLibrary.length - 1].author + "\n";
+box.classList.add("book");
+books.appendChild(box);
+box.appendChild(bookInfo);
