@@ -16,7 +16,6 @@ function addBookToLibrary(newBook){
     if(!exists){
         myLibrary.push(newBook);
     } else {
-        console.log(newBook.title + " exists in your library already");
         const message = document.createElement("p");
         message.id = "errorMessage";
         message.textContent = newBook.title + " exists in your library already";
@@ -25,11 +24,6 @@ function addBookToLibrary(newBook){
     }
     
 }
-
-const book1 = new Book("Jeff Kinney", "Diary of a Wimpy Kid", 150, false);
-
-addBookToLibrary(book1);
-
 
 const addButton = document.querySelector('.add-button');
 const modal = document.querySelector('.modal');
@@ -50,18 +44,52 @@ addButton.addEventListener('click', () =>{
 const submitButton = document.querySelector('.submit-button')
 const bookForm = document.querySelector('.book-form')
 
-submitButton.addEventListener('click', () =>{
-    if(bookForm.author.value ==="" || bookForm.title.value ==="" || bookForm.pages.value===""){
+submitButton.addEventListener('click', (book) =>{
+    const titleExists = myLibrary.some(book => book.title.toLowerCase() === bookForm.title.value.toLowerCase());
+    if (titleExists) {
+        const message = document.createElement("p");
+        message.id = "errorMessage";
+        message.textContent = bookForm.title.value + " exists in your library already";
+        errorMessageSpace.appendChild(message);
+        messageExists = true;
         return
     }
+
+
     const newBook = new Book(bookForm.author.value, bookForm.title.value, bookForm.pages.value, bookForm.read.checked);
     addBookToLibrary(newBook);
-})
 
-const books = document.querySelector('.books');
-const box = document.createElement("div");
-const bookInfo = document.createElement("p");
-bookInfo.textContent = myLibrary[myLibrary.length -1].title + `\r\n` + myLibrary[myLibrary.length - 1].author + "\n";
-box.classList.add("book");
-books.appendChild(box);
-box.appendChild(bookInfo);
+    const books = document.querySelector('.books');
+    const box = document.createElement("div");
+    const bookInfo = document.createElement("p");
+
+    const addedBook = myLibrary[myLibrary.length - 1]
+
+    bookInfo.innerHTML = `<strong>Author: </strong>`;
+    bookInfo.appendChild(document.createTextNode(addedBook.author));
+    bookInfo.innerHTML += `<br><strong>Title: </strong>`;
+    bookInfo.appendChild(document.createTextNode(addedBook.title));
+    bookInfo.innerHTML += `<br> <strong>Pages: </strong>`;
+    bookInfo.appendChild(document.createTextNode(addedBook.pages));
+    const readButton = document.createElement("button");
+    readButton.textContent = addedBook.read ? "Read" : "Not Read";
+    readButton.style.backgroundColor = addedBook.read ? "green" : "red";
+    readButton.classList.add("read-button");
+
+    readButton.addEventListener('click', function() {
+        addedBook.read = !addedBook.read;
+        readButton.textContent = addedBook.read ? "Read" : "Not Read";
+        readButton.style.backgroundColor = addedBook.read ? "green" : "red";
+    });
+
+    bookInfo.appendChild(document.createElement("br"));
+    bookInfo.appendChild(readButton);
+
+    box.classList.add("book");
+    books.appendChild(box);
+    box.appendChild(bookInfo);
+}
+)
+
+
+

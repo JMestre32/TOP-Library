@@ -25,8 +25,15 @@ body{
     max-width: 200px;
     max-height: 300px;
     margin: 10px;
+    line-height: 2.5rem;
 }
 
+.read-button{
+    color:#f0fdf4;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    border-radius: 24px;
+} 
 
 .books{
     display: flex;
