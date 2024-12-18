@@ -36,6 +36,14 @@ body{
     border-radius: 24px;
 } 
 
+.delete-button{
+    color: #f0fdf4;
+    background-color: red;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    border-radius: 24px;
+}
+
 .books{
     display: flex;
     align-items: center;
