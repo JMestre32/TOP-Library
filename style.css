@@ -26,6 +26,7 @@ body{
     max-height: 300px;
     margin: 10px;
     line-height: 2.5rem;
+    padding: 20px;
 }
 
 .read-button{
@@ -41,7 +42,6 @@ body{
     justify-content: space-between;
     width: 100vh;
     flex-wrap: wrap;
-    padding: 20px;
 }
 
 svg{
