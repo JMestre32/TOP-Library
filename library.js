@@ -44,7 +44,8 @@ addButton.addEventListener('click', () =>{
 const submitButton = document.querySelector('.submit-button')
 const bookForm = document.querySelector('.book-form')
 
-submitButton.addEventListener('click', (book) =>{
+submitButton.addEventListener('click', () =>{
+    // This line pretty much passes book in as a placeholder to check through myLibrary for some value bookForm.title.value.toLowerCase()
     const titleExists = myLibrary.some(book => book.title.toLowerCase() === bookForm.title.value.toLowerCase());
     if (titleExists) {
         if(messageExists){
@@ -77,7 +78,6 @@ submitButton.addEventListener('click', (book) =>{
     const addedBook = myLibrary[myLibrary.length - 1]
 
     
-    bookInfo.innerHTML = `<div class = delete> </div>`;
     bookInfo.innerHTML = `<strong>Author: </strong>`;
     bookInfo.appendChild(document.createTextNode(addedBook.author));
     bookInfo.innerHTML += `<br><strong>Title: </strong>`;
@@ -87,9 +87,11 @@ submitButton.addEventListener('click', (book) =>{
     const readButton = document.createElement("button");
     readButton.textContent = addedBook.read ? "Read" : "Not Read";
     readButton.style.backgroundColor = addedBook.read ? "green" : "red";
+    // Needed otherwise read-button will not by styled
     readButton.classList.add("read-button");
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Remove";
+    // Similar to readButton
     deleteButton.classList.add("delete-button");
 
     readButton.addEventListener('click', function() {
@@ -105,6 +107,7 @@ submitButton.addEventListener('click', (book) =>{
         if (index !== -1) {
             myLibrary.splice(index, 1);
         }
+        // This searches the DOM for the closest book element and removes it
         this.closest('.book').remove();
     })
 
@@ -113,6 +116,7 @@ submitButton.addEventListener('click', (book) =>{
     bookInfo.appendChild(document.createElement("br"));
     bookInfo.appendChild(deleteButton);
 
+    // classList 
     box.classList.add("book");
     books.appendChild(box);
     box.appendChild(bookInfo);
